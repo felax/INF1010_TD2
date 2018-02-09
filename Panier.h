@@ -33,7 +33,7 @@ public:
 	// TODO: Implementez la methode qui retourne le produit le plus cher du panier
 	Produit* trouverProduitPlusCher();
 	// TODO: Cette methode doit être remplacée par la surcharge de l'opérateur <<
-	void afficher() const;
+	Panier operator<< (const Panier& panier) const;
 
 private:
 	double totalAPayer_;

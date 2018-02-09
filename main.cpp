@@ -24,6 +24,9 @@ using namespace std;
 
 int main()
 {
+	Produit test;
+	cout << test;
+	/*
 	Produit* unProduit = new Produit();
 	// Faire saisir à l'utilisateur les attributs du produit unProduit selon le format de la capture d'écran de l'énoncé
 
@@ -79,5 +82,5 @@ int main()
 
 	// Afichez le produit le plus cher du panier de martine
 
-	// Terminer le programme correctement
+	// Terminer le programme correctement*/
 }

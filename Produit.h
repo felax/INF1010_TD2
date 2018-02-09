@@ -26,13 +26,15 @@ public:
 	void modifierPrix(double prix);
 
 	// TODO: Ajouter la surcharge de l'op�rateur >
+	bool operator> (const Produit& produit) const;
 	// TODO: Ajouter la surcharge de l'op�rateur <
+	bool operator< (const Produit& produit) const;
 	// TODO: Ajouter la surcharge de l'operateur ==
-	
-	// TODO: Ajouter la surcharge de l'opérateur >>
-
-    // TODO: Cette methode doit �tre remplac�e par la surcharge de l'op�rateur <<
-	void afficher() const;
+	bool operator== (const Produit& produit) const;
+	// Entrer les parametres du produit >>
+	void operator>> (const Produit& produit);
+    // Affiche les caracteristiques du produit <<
+	friend ostream& operator<< (ostream& os, const Produit& produit);
    
 private:
 	string nom_;

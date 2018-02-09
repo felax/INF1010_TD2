@@ -38,8 +38,9 @@ public:
 	void livrerPanier();
 
 	// TODO: Surcharger l'operateur d'affectation =
+	Client operator= (Client& client) const;
 	// TODO: Surcharger l'operateur == (client == identifiant)
-
+	Client operator== (const int id) const;
 	// TODO: Surcharger l'operateur == (identifiant == client)
 	// TODO: Cette methode doit être remplacée par la surcharge de l'opérateur <<
 	void afficherPanier() const;

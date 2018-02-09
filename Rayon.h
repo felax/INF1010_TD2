@@ -1,7 +1,7 @@
 /********************************************
 * Titre: Travail pratique #2 -Rayon.h
 * Date: 25 janvier 2018
-* Auteur: Timothée CHAUVIN
+* Auteur: Timothï¿½e CHAUVIN
 *******************************************/
 
 #pragma once
@@ -27,12 +27,12 @@ public:
 	void modifierCategorie(const string& cat);
 
 	// TODO: Cette methode doit etre remplacee par la surchage de l'operateur +=
-	void ajouterProduit(Produit * produit);
+	Rayon operator+= (const Produit& produit);
 	// TODO: Implermenter la methode compterDoublons
-	int compterDoublons(const Produit& produit);
+	int compterDoublons(const Produit& produit) const;
 
-	// TODO: Cette methode doit être remplacee par la surcharge de l'opérateur <<
-	void afficher() const;
+	// TODO: Cette methode doit ï¿½tre remplacee par la surcharge de l'opï¿½rateur <<
+	Rayon operator<< (const Rayon& rayon) const;
 
 private:
 	string categorie_;
