@@ -32,9 +32,9 @@ public:
 	// TODO: Ajouter la surcharge de l'operateur ==
 	bool operator== (const Produit& produit) const;
 	// Entrer les parametres du produit >>
-	void operator>> (const Produit& produit);
+	istream& operator>> (istream& is);
     // Affiche les caracteristiques du produit <<
-	friend ostream& operator<< (ostream& os, const Produit& produit);
+	friend ostream& operator<< (ostream& os, const Produit&);
    
 private:
 	string nom_;

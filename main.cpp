@@ -24,8 +24,15 @@ using namespace std;
 
 int main()
 {
-	Produit test;
-	cout << test;
+	Produit test1;
+	Produit test2;
+	Produit gros("gros", 0, 100);
+	Produit petit("petit", 0, 1);
+	cout << test1 << endl << test2 << endl << gros << endl << petit << endl;
+	cout << "gros < petit : " << (gros < petit) << endl;
+	cout << "gros > petit : " << (gros > petit) << endl;
+	cout << "test1 = test2 : " << (test1 == test2) << endl;
+	cout << "gros = petit : " << (gros == petit) << endl;
 	/*
 	Produit* unProduit = new Produit();
 	// Faire saisir à l'utilisateur les attributs du produit unProduit selon le format de la capture d'écran de l'énoncé
