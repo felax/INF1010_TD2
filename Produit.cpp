@@ -51,7 +51,7 @@ bool Produit::operator< (const Produit& produit) const{
 bool Produit::operator> (const Produit& produit) const{
 	bool bigger = false;
 
-	if (prix_ < produit.prix_){
+	if (prix_ > produit.prix_){
 		bigger = true;
 	}
 	return bigger;
