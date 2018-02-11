@@ -6,12 +6,8 @@
 
 #include "Panier.h"
 
-Panier::Panier(int capacite) :
-	capaciteContenu_{ capacite },
-	nombreContenu_{ 0 },
-	contenuPanier_{ new Produit *[capaciteContenu_] },
-	totalAPayer_{ 0 }
-{
+Panier::Panier() {
+	totalAPayer_ =  0;
 }
 
 Panier::~Panier()
@@ -19,14 +15,14 @@ Panier::~Panier()
 }
 
 // methodes d'accès
-Produit **  Panier::obtenirContenuPanier()const
+vector<Produit*> Panier::obtenirContenuPanier()const
 {
 	return contenuPanier_;
 }
 
 int Panier::obtenirNombreContenu() const
 {
-	return nombreContenu_;
+	return contenuPanier_.size();
 }
 
 double Panier::obtenirTotalApayer() const
@@ -42,9 +38,12 @@ void Panier::modifierTotalAPayer(double totalAPayer)
 // méthodes de modification
 
 // autres méthodes
-void Panier::ajouter(Produit * prod)
+Panier* Panier::operator+= (Produit * produit)
 {
-	if (nombreContenu_ >= capaciteContenu_)
+	contenuPanier_.push_back(produit);
+	totalAPayer_ += produit->obtenirPrix();
+	return this;
+	/*if (nombreContenu_ >= capaciteContenu_)
 	{
 		Produit ** temp;
 		capaciteContenu_ *= 2;
@@ -55,26 +54,31 @@ void Panier::ajouter(Produit * prod)
 		contenuPanier_ = temp;
 	}
 	contenuPanier_[nombreContenu_++] = prod;
-	totalAPayer_ += prod->obtenirPrix();
+	totalAPayer_ += prod->obtenirPrix();*/
 }
 
 void Panier::livrer()
 {
-	delete[]contenuPanier_;
-	nombreContenu_ = 0;
+	contenuPanier_.clear();
 	totalAPayer_ = 0;
-	contenuPanier_ = new Produit *[capaciteContenu_];
 }
 
 Produit * Panier::trouverProduitPlusCher()
 {
-	// TODO: Implementez la methode
+	Produit* produitPlusCher = contenuPanier_[0];
+	for (int i = 1; i < contenuPanier_.size(); i++) {
+		if (contenuPanier_[i] > produitPlusCher) {
+			produitPlusCher = contenuPanier_[i];
+		}
+	}
+	return produitPlusCher;
 }
 
-void Panier::afficher() const
+ostream& operator<< (ostream& os, const Panier& panier)
 {
-	for (int i = 0; i < nombreContenu_; i++)
-		contenuPanier_[i]->afficher();
-
-	cout << "----> total a payer : " << totalAPayer_ << endl;
+	for (int i = 0; i < panier.contenuPanier_.size(); i++){
+		os << panier.contenuPanier_[i];
+	}
+	os << "----> total a payer : " << panier.totalAPayer_ << endl;
+	return os;
 }

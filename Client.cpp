@@ -80,11 +80,12 @@ void Client::modifierDateNaissance(long date)
 }
 
 // Autres méthodes
-void Client::acheter(Produit * prod)
+void Client::acheter(Produit * produit)
 {
-	if (monPanier_ == nullptr)
-		monPanier_ = new Panier(4);
-	monPanier_->ajouter(prod);
+	if (monPanier_ == nullptr) {
+		monPanier_ = new Panier();
+	}
+	*monPanier_ += produit;
 }
 
 void Client::livrerPanier()
@@ -94,13 +95,40 @@ void Client::livrerPanier()
 	monPanier_ = nullptr;
 }
 
-void Client::afficherPanier() const
+ostream& operator<< (ostream& os, const Client& client)
 {
-	if (monPanier_ != nullptr) {
-		cout << "Le panier de " << prenom_ << ": " << endl;
-		monPanier_->afficher();
+	if (client.monPanier_ != nullptr) {
+		cout << "Le panier de " << client.prenom_ << ": " 
+		<< endl << client.monPanier_;
 	}
 	else {
-		cout << "Le panier de " <<prenom_ << " est vide !" << endl;
+		cout << "Le panier de " << client.prenom_ << " est vide !" << endl;
 	}
+}
+
+Client Client::operator= (Client& client) { //p-e il y a une facons plus elegante de faire ca
+	this->nom_ = client.obtenirNom();
+	this->prenom_ = client.obtenirPrenom();
+	this->identifiant_ = client.obtenirIdentifiant();
+	this->codePostal_ = client.obtenirCodePostal();
+	this->dateNaissance_ = client.obtenirDateNaissance();
+	this->monPanier_ = client.obtenirPanier();
+
+	return client;
+}
+
+bool Client::operator== (const int id) const {
+	bool match = false;
+	if (this->obtenirIdentifiant() == id) {
+		match = true;
+	}
+	return match;
+}
+
+bool operator== (const int id, const Client& client) {
+	bool match = false;
+	if (client.obtenirIdentifiant() == id) {
+		match = true;
+	}
+	return match;
 }

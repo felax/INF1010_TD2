@@ -34,16 +34,17 @@ public:
 	void modifierDateNaissance(long date);
 
 	// Adapter l'implementation de la methode acheter si besion
-	void acheter(Produit * prod);
+	void acheter(Produit * produit);
 	void livrerPanier();
 
 	// TODO: Surcharger l'operateur d'affectation =
-	Client operator= (Client& client) const;
+	Client operator= (Client& client);
 	// TODO: Surcharger l'operateur == (client == identifiant)
-	Client operator== (const int id) const;
+	bool operator== (const int id) const;
 	// TODO: Surcharger l'operateur == (identifiant == client)
+	friend bool operator== (const int id, const Client& client);
 	// TODO: Cette methode doit être remplacée par la surcharge de l'opérateur <<
-	void afficherPanier() const;
+	friend ostream& operator<< (ostream& os, const Client& client);
 
 private:
 	string nom_;
