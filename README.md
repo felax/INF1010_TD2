@@ -1,0 +1,1 @@
+Pas mal fini. La derniere parti marche pas. Je pense que la copie de l'objet a probleme. Il y a de tres bonnes chances qu'ils faut ajouter un constructeur de copie pour eviter des "shallow copies"
