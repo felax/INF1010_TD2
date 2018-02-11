@@ -99,7 +99,7 @@ ostream& operator<< (ostream& os, const Client& client)
 {
 	if (client.monPanier_ != nullptr) {
 		cout << "Le panier de " << client.prenom_ << ": " 
-		<< endl << client.monPanier_;
+		<< endl << *client.monPanier_;
 	}
 	else {
 		cout << "Le panier de " << client.prenom_ << " est vide !" << endl;

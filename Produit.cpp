@@ -68,10 +68,10 @@ bool Produit::operator== (const Produit& produit) const{
 	return same;
 }
 
-istream& Produit::operator>> (istream& is){
-	is 	>> this->nom_
-		>> this->reference_
-		>> this->prix_;
+istream& operator>> (istream& is, Produit& produit){
+	is 	>> produit.nom_
+		>> produit.reference_
+		>> produit.prix_;
 	return is;
 }
 
