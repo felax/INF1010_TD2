@@ -20,32 +20,30 @@ class Panier
 {
 
 public:
-	// TODO: Noubliez pas de retirer la capacite et donc transformer ce constructeur en constructeur par default
+	// constructeur et destructur par default
 	Panier();
 	~Panier();
 
+	// methodes d'acces
 	vector <Produit*>	obtenirContenuPanier()	const;
 	int					obtenirNombreContenu()	const;
 	double				obtenirTotalApayer()	const;
 
+	// methode de modification
 	void modifierTotalAPayer(double totalAPayer);
 
-	// TODO: Adapter l'implementation de ces deux methode pour les rendre compatibles avec le nouveau vecteur
+	// Methode d'ajout de produit au panier
 	Panier* operator+= (Produit * produit);
+	// Methode pour livrer le panier
 	void livrer();
 
-	// TODO: Implementez la methode qui retourne le produit le plus cher du panier
+	// Trouve le produit le plus cher dans le panier
 	Produit* trouverProduitPlusCher();
 	
-	// TODO: Cette methode doit être remplacée par la surcharge de l'opérateur <<
+	// Affiche le contenu du panier
 	friend ostream& operator<< (ostream& os, const Panier& panier);
 
 private:
 	double			  totalAPayer_;
 	vector <Produit*> contenuPanier_;
-	// TODO: Remplacer ces attributs par un vecteur de la STL
-	/*Produit ** contenuPanier_;
-	int  nombreContenu_;
-	int capaciteContenu_;*/
-
 };

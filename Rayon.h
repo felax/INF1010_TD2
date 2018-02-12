@@ -20,32 +20,30 @@ class Rayon
 {
 
 public:
+
+	// Constructeur et destructeur par default
 	Rayon(const string& cat = "inconnu");
 	~Rayon();
 
+	// Methodes d'acces
 	string			 obtenirCategorie()			const;
 	vector<Produit*> obtenirTousProduits()		const;
 	int				 obtenirCapaciteProduits()	const;
 	int				 obtenirNombreProduits()	const;
 
+	// Methode de modification
 	void modifierCategorie(const string& cat);
 
-	// TODO: Cette methode doit etre remplacee par la surchage de l'operateur +=
+	// Ajoute un produit au rayon
 	Rayon* operator+= (Produit* produit);
 	
-	// TODO: Implermenter la methode compterDoublons
+	// Compte le nombre de produit identiques dans un rayon
 	int compterDoublons(const Produit* produit) const;
 	
-	// TODO: Cette methode doit �tre remplacee par la surcharge de l'op�rateur <<
+	// Affiche les produits dans le rayon
 	friend ostream& operator<< (ostream& os, const Rayon& rayon);
 
 private:
 	string			  categorie_;
 	vector <Produit*> tousProduits_;
-	
-	// TODO: Remplacer ces attributs par un vecteur de la STL
-	// Produit ** tousProduits_;
-	// int capaciteProduits_;
-	// int nombreProduits_;
-
 };

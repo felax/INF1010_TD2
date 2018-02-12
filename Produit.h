@@ -19,29 +19,31 @@ class Produit
 {
 
 public:
+
+	// Constructeur par default
 	Produit(const string& nom = "outil", int reference = 0, double prix = 0.0);
 
+	// Methodes d'acces
 	string	obtenirNom()		 const;
 	int		obtenirReference()	 const;
 	double	obtenirPrix()		 const;
 
+	// Methodes de modification
 	void modifierNom(const string& nom);
 	void modifierReference(int reference);
 	void modifierPrix(double prix);
 
-	// TODO: Ajouter la surcharge de l'op�rateur >
+	// Compare la capiciter de 2 produits
 	bool operator> (const Produit& produit) const;
-	
-	// TODO: Ajouter la surcharge de l'op�rateur <
 	bool operator< (const Produit& produit) const;
 	
-	// TODO: Ajouter la surcharge de l'operateur ==
+	// Compare 2 produits
 	bool operator== (const Produit& produit) const;
 	
-	// Entrer les parametres du produit >>
+	// Affiche les attributs d'un produit
 	friend istream& operator>> (istream& is, Produit& produit);
    
-	// Affiche les caracteristiques du produit <<
+	// Affiche les caracteristiques du produit 
 	friend ostream& operator<< (ostream& os, const Produit&);
    
 private:

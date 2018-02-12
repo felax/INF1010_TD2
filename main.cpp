@@ -120,5 +120,7 @@ int main()
 	cout << *(martine.obtenirPanier()->trouverProduitPlusCher());
 	
 	// Terminer le programme correctement*/
-	system("pause");
+	delete unProduit;
+	for (int i = 0; i < NB_PRODUCTS; i++) 
+		delete produits[i];
 }

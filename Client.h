@@ -24,8 +24,7 @@ public:
 	~Client();
 	Client(const Client& objetCopie);
 
-	// TODO: Ajouter un constructeur par copie si necessaire
-
+	// Methodes d'acces
 	string	obtenirNom()			const;
 	string	obtenirPrenom()			const;
 	int		obtenirIdentifiant()	const;
@@ -33,26 +32,25 @@ public:
 	long	obtenirDateNaissance()  const;
 	Panier* obtenirPanier()			const;
 
+	// Methodes de modification
 	void modifierNom(const string& nom);
 	void modifierPrenom(const string& prenom);
 	void modifierIdentifiant(int identifiant);
 	void modifierCodePostal(const string& codePostal);
 	void modifierDateNaissance(long date);
 
-	// Adapter l'implementation de la methode acheter si besion
+	// Autres methodes
 	void acheter(Produit * produit);
 	void livrerPanier();
 
-	// TODO: Surcharger l'operateur d'affectation =
+	// Remplace les attributs de l'objet par celui a droite
 	Client operator= (Client& client);
 	
-	// TODO: Surcharger l'operateur == (client == identifiant)
+	// Compare un client avec un identifiant, return un bool
 	bool operator== (const int id) const;
-	
-	// TODO: Surcharger l'operateur == (identifiant == client)
 	friend bool operator== (const int id, const Client& client);
 	
-	// TODO: Cette methode doit être remplacée par la surcharge de l'opérateur <<
+	// Affiche le client et le contenu de son panier
 	friend ostream& operator<< (ostream& os, const Client& client);
 
 private:
