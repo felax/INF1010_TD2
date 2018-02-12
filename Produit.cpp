@@ -2,6 +2,10 @@
 * Titre: Travail pratique #2 - Produit.cpp
 * Date: 25 janvier 2018
 * Auteur: Mohammed Esseddik BENYAHIA & Timothee CHAUVIN
+* Modifié par: Nezha Zahri(1786454) et Félix Montminy(1903263)
+* FICHIER:	    TP2
+* DATE:        11/02/2018
+* DESCRIPTION: Implémentation de la classe Produit
 *******************************************/
 
 #include "Produit.h"
@@ -53,8 +57,9 @@ bool Produit::operator> (const Produit& produit) const{
 
 	if (prix_ > produit.prix_){
 		bigger = true;
+	
 	}
-	return bigger;
+	else { return bigger; }
 }
 
 bool Produit::operator== (const Produit& produit) const{
@@ -76,8 +81,8 @@ istream& operator>> (istream& is, Produit& produit){
 }
 
 ostream& operator<< (ostream& os, const Produit& produit){
-	os 	<< "nom : " << produit.obtenirNom()
+	os << "nom : " << produit.obtenirNom()
 		<< "\t ref : " << produit.obtenirReference()
-		<< "\t prix : " << produit.obtenirPrix();
+		<< "\t prix : " << produit.obtenirPrix() << endl;
 	return os;
 }

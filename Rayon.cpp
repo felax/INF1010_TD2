@@ -2,6 +2,10 @@
 * Titre: Travail pratique #2 - Rayon.cpp
 * Date: 25 janvier 2018
 * Auteur: Timoth�e CHAUVIN
+* Modifié par: Nezha Zahri(1786454) et Félix Montminy(1903263)
+* FICHIER:	    TP2
+* DATE:        11/02/2018
+* DESCRIPTION: Implémentation de la classe Rayon
 *******************************************/
 
 #include "Rayon.h"

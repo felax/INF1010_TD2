@@ -2,6 +2,10 @@
 * Titre: Travail pratique #2 - Panier.h
 * Date: 25 janvier 2018
 * Auteur: Mohammed Esseddik BENYAHIA & Timothée CHAUVIN
+* Modifié par: Nezha Zahri(1786454) et Félix Montminy(1903263)
+* FICHIER:	    TP2
+* DATE:        11/02/2018
+* DESCRIPTION: Description de la classe Panier
 *******************************************/
 
 #pragma once
@@ -20,9 +24,9 @@ public:
 	Panier();
 	~Panier();
 
-	vector <Produit*> obtenirContenuPanier()const;
-	int obtenirNombreContenu() const;
-	double obtenirTotalApayer() const;
+	vector <Produit*>	obtenirContenuPanier()	const;
+	int					obtenirNombreContenu()	const;
+	double				obtenirTotalApayer()	const;
 
 	void modifierTotalAPayer(double totalAPayer);
 
@@ -32,11 +36,12 @@ public:
 
 	// TODO: Implementez la methode qui retourne le produit le plus cher du panier
 	Produit* trouverProduitPlusCher();
+	
 	// TODO: Cette methode doit être remplacée par la surcharge de l'opérateur <<
 	friend ostream& operator<< (ostream& os, const Panier& panier);
 
 private:
-	double totalAPayer_;
+	double			  totalAPayer_;
 	vector <Produit*> contenuPanier_;
 	// TODO: Remplacer ces attributs par un vecteur de la STL
 	/*Produit ** contenuPanier_;

@@ -2,7 +2,12 @@
 * Titre: Travail pratique #2 - Client.h
 * Date: 25 janvier 2018
 * Auteur: Mohammed Esseddik BENYAHIA & Timothée CHAUVIN
-*******************************************/
+* Modifié par: Nezha Zahri(1786454) et Félix Montminy(1903263)
+* FICHIER:	    TP2
+* DATE:        11/02/2018
+* DESCRIPTION: Définition de la classe Client
+**************************************************/
+
 
 #pragma once
 
@@ -17,15 +22,16 @@ class Client
 public:
 	Client(const string&  nom, const string& prenom, int identifiant, const string& codePostal, long date);
 	~Client();
+	Client(const Client& objetCopie);
 
 	// TODO: Ajouter un constructeur par copie si necessaire
 
-	string obtenirNom() const;
-	string obtenirPrenom() const;
-	int obtenirIdentifiant() const;
-	string obtenirCodePostal() const;
-	long obtenirDateNaissance() const;
-	Panier* obtenirPanier() const;
+	string	obtenirNom()			const;
+	string	obtenirPrenom()			const;
+	int		obtenirIdentifiant()	const;
+	string	obtenirCodePostal()		const;
+	long	obtenirDateNaissance()  const;
+	Panier* obtenirPanier()			const;
 
 	void modifierNom(const string& nom);
 	void modifierPrenom(const string& prenom);
@@ -39,19 +45,22 @@ public:
 
 	// TODO: Surcharger l'operateur d'affectation =
 	Client operator= (Client& client);
+	
 	// TODO: Surcharger l'operateur == (client == identifiant)
 	bool operator== (const int id) const;
+	
 	// TODO: Surcharger l'operateur == (identifiant == client)
 	friend bool operator== (const int id, const Client& client);
+	
 	// TODO: Cette methode doit être remplacée par la surcharge de l'opérateur <<
 	friend ostream& operator<< (ostream& os, const Client& client);
 
 private:
-	string nom_;
-	string prenom_;
-	int identifiant_;
-	string codePostal_;
-	long dateNaissance_;
-	Panier *  monPanier_;
+	string 	 nom_;
+	string	 prenom_;
+	int		 identifiant_;
+	string	 codePostal_;
+	long	 dateNaissance_;
+	Panier*  monPanier_;
 
 };

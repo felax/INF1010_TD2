@@ -2,17 +2,22 @@
 * Titre: Travail pratique #2 - Client.cpp
 * Date: 25 janvier 2018
 * Auteur: Mohammed Esseddik BENYAHIA & Timothée CHAUVIN
-*******************************************/
+* Modifié par: Nezha Zahri(1786454) et Félix Montminy(1903263)
+* FICHIER:	    TP2
+* DATE:        11/02/2018
+* DESCRIPTION: Implémentation de la classe Client
+**************************************************/
+
 
 #include "Client.h"
 
 Client::Client(const string&  nom, const string& prenom, int identifiant, const string& codePostal, long date) :
-	nom_{ nom },
-	prenom_{ prenom },
-	identifiant_{ identifiant },
-	codePostal_{ codePostal },
+	nom_		  { nom },
+	prenom_		  { prenom },
+	identifiant_  { identifiant },
+	codePostal_	  { codePostal },
 	dateNaissance_{ date },
-	monPanier_{ nullptr }
+	monPanier_    { nullptr }
 {
 }
 
@@ -20,6 +25,16 @@ Client::~Client()
 {
 	if (monPanier_ != nullptr)
 		delete monPanier_;
+}
+
+//Constructeur de copie
+Client::Client(const Client& objetCopie )
+	: nom_(objetCopie.nom_), prenom_(objetCopie.prenom_), identifiant_(objetCopie.identifiant_),
+	codePostal_(objetCopie.codePostal_), dateNaissance_(objetCopie.dateNaissance_) ,monPanier_(nullptr)
+{
+	this->monPanier_ = new Panier(*(objetCopie.monPanier_));
+	this->monPanier_->modifierTotalAPayer(objetCopie.monPanier_->obtenirTotalApayer());
+	
 }
 
 // Methodes d'acces
@@ -98,12 +113,15 @@ void Client::livrerPanier()
 ostream& operator<< (ostream& os, const Client& client)
 {
 	if (client.monPanier_ != nullptr) {
-		cout << "Le panier de " << client.prenom_ << ": " 
-		<< endl << *client.monPanier_;
+		cout << "Le panier de " << client.prenom_ << ": "
+			<< endl;
+		cout << *client.monPanier_;
 	}
 	else {
 		cout << "Le panier de " << client.prenom_ << " est vide !" << endl;
 	}
+
+	return os;
 }
 
 Client Client::operator= (Client& client) { //p-e il y a une facons plus elegante de faire ca
